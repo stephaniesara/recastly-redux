@@ -4,10 +4,11 @@ import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import Nav from './Nav.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
-import changeVideo from '../actions/currentVideo.js';
-import changeVideoList from '../actions/videoList.js';
+// import changeVideo from '../actions/currentVideo.js';
+// import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
+import handleVideoSearch from '../actions/search.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch(changeVideo(exampleVideoData[0]));
-    store.dispatch(changeVideoList(exampleVideoData));
+    store.dispatch(handleVideoSearch('border collie puppies'))
   }
 
   //TODO: swap out the React components below for the container components
